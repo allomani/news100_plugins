@@ -1,0 +1,27 @@
+<?
+global $settings,$data ;
+$qr=db_query("select * from videos_data order by id DESC limit 8") ;
+print "<table width=100%><tr>";
+$c=0 ;
+while ($data = db_fetch($qr)){
+   
+if ($c==$settings['news_cells']) {
+print "  </tr><TR>" ;
+$c = 0 ;
+}
+ ++$c ;
+
+print " <td><center><a href='index.php?action=video_preview&id=$data[id]'>
+            <img border=0 alt='$phrases[the_name] : $data[name] \n$phrases[add_date] : ".substr($data['date'],0,10)."'
+            src='".get_image($data['img'])."'>
+            <br>$data[name] </a><br>
+<a href='index.php?action=video_preview&id=$data[id]'><img src='images/watch.gif' border=0 alt='$phrases[watch]'></a>
+<a href='download.php?action=video&id=$data[id]'><img src='images/download.gif' border=0 alt='$phrases[download]'></a>
+";
+
+
+ print "</center>    </td>";
+ 
+              }
+             print "</tr></table>";
+?>

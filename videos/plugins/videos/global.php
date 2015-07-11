@@ -1,0 +1,11 @@
+<?
+$actions_checks["ÇáÝíÏíæ"] = 'videos' ;
+
+array_push($actions_list,'videos');
+
+$actions_text .= ",videos" ;
+
+$permissions_checks["ÇáÝíÏíæ"]  = "videos" ;
+
+
+?>
